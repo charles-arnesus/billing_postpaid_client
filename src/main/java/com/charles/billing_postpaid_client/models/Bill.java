@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "pdam_bill")
+@Table(name = "postpaid_bill")
 public class Bill implements Serializable {
 
     @Id
