@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/inquiry")
 public class PostpaidClientInquiryController {
 
-    @PostMapping("/inquiry")
+    @PostMapping("/")
     public InquiryResponse doInquiry(@RequestBody InquiryRequest inquiryRequest) {
         InquiryResponse response = new InquiryResponse();
         response.setBillerId(inquiryRequest.getBillerId());
