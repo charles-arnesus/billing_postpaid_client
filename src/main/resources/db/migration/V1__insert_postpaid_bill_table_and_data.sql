@@ -1,25 +1,15 @@
--- Table: public.postpaid_bill
-
--- DROP TABLE public.postpaid_bill;
-
 CREATE TABLE postpaid_bill
 (
-    biller_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    customer_account_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    due_date date NOT NULL,
-    payment_date date,
+    biller_id VARCHAR(255) NOT NULL,
+    customer_account_id VARCHAR(255) NOT NULL,
+    due_date DATE NOT NULL,
+    payment_date DATE,
     payment_id uuid,
-    status character varying(255) COLLATE pg_catalog."default",
-    total_amount double precision,
-    CONSTRAINT postpaid_bill_pkey PRIMARY KEY (biller_id, customer_account_id, due_date)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+    status VARCHAR(255),
+    total_amount DOUBLE PRECISION
+);
 
-ALTER TABLE public.postpaid_bill
-    OWNER to postgres;
+ALTER TABLE postpaid_bill ADD CONSTRAINT postpaid_bill_pk PRIMARY KEY (biller_id, customer_account_id, due_date);
 
 INSERT INTO postpaid_bill(
 	biller_id, customer_account_id, due_date,  status, total_amount)
